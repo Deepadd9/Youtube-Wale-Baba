@@ -5,72 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube Wale Baba</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             text-align: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: Arial, sans-serif;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
             color: white;
-            margin: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: red;
-            border-radius: 50%;
-            margin: 20px auto;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            animation: slideIn 0.8s ease-in;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo-large {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
             font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
         }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
         h1 {
-            font-size: 32px;
-            margin: 20px 0;
+            font-size: 60px;
+            margin: 30px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            margin: 20px 0;
+            opacity: 0.95;
+        }
+        
+        .logo-medium {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 50%;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .description {
+            font-size: 24px;
+            margin: 40px 0;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .timer-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .timer-text {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
         .timer {
-            font-size: 48px;
+            font-size: 80px;
             font-weight: bold;
             color: #FFD700;
-            margin: 30px 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
+        
+        .timer-sub {
+            font-size: 18px;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+        
         .whatsapp-btn {
-            background: #25D366;
+            background: linear-gradient(135deg, #25D366 0%, #1EBE57 100%);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 50px;
+            padding: 25px 60px;
+            font-size: 28px;
+            border-radius: 60px;
             cursor: pointer;
-            margin: 20px 0;
+            margin: 40px 0;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        
         .whatsapp-btn:hover {
-            background: #1EBE57;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .footer {
+            margin-top: 60px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+            .subtitle {
+                font-size: 20px;
+            }
+            .description {
+                font-size: 18px;
+            }
+            .timer {
+                font-size: 60px;
+            }
+            .whatsapp-btn {
+                padding: 20px 40px;
+                font-size: 20px;
+            }
+            .logo-large {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+            .logo-medium {
+                width: 80px;
+                height: 80px;
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">📺</div>
+        <div class="logo-large">📺</div>
+        
         <h1>Youtube Wale Baba</h1>
         
-        <div class="logo">🎬</div>
-        <h2>हमारा चैनल देखें!</h2>
+        <div class="logo-medium">🎬</div>
         
-        <p>हमसे जुड़ने के लिए WhatsApp पर message करें</p>
+        <div class="subtitle">हमारा चैनल देखें!</div>
         
-        <div class="timer">
-            <span id="countdown">5</span>s
+        <div class="description">
+            <p>🎥 सबसे मजेदार और दिलचस्प videos के लिए</p>
+            <p>हमारे YouTube चैनल को SUBSCRIBE करें!</p>
+        </div>
+        
+        <div class="timer-box">
+            <div class="timer-text">🔔 WhatsApp पर संपर्क करने के लिए तैयार रहें!</div>
+            <div class="timer">
+                <span id="countdown">5</span>
+            </div>
+            <div class="timer-sub">सेकंड में automatic redirect होगा...</div>
         </div>
         
         <button class="whatsapp-btn" id="whatsappBtn">
-            WhatsApp पर संपर्क करें
+            📱 WhatsApp पर संपर्क करें
         </button>
+        
+        <div class="footer">
+            <p>अभी क्लिक करें या 5 सेकंड का इंतज़ार करें</p>
+        </div>
     </div>
 
     <script>
@@ -91,6 +237,7 @@
         }, 1000);
         
         whatsappBtn.addEventListener('click', () => {
+            clearInterval(timer);
             window.location.href = whatsappLink;
         });
     </script>
