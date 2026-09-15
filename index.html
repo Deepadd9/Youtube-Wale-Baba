@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Wale Baba</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: white;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFD700;
+            margin: 30px 0;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .whatsapp-btn:hover {
+            background: #1EBE57;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📺</div>
+        <h1>Youtube Wale Baba</h1>
+        
+        <div class="logo">🎬</div>
+        <h2>हमारा चैनल देखें!</h2>
+        
+        <p>हमसे जुड़ने के लिए WhatsApp पर message करें</p>
+        
+        <div class="timer">
+            <span id="countdown">5</span>s
+        </div>
+        
+        <button class="whatsapp-btn" id="whatsappBtn">
+            WhatsApp पर संपर्क करें
+        </button>
+    </div>
+
+    <script>
+        let seconds = 5;
+        const whatsappLink = "https://wa.me/message/CWMXA5MOC5KAB1";
+        
+        const countdownElement = document.getElementById('countdown');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        
+        const timer = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = whatsappLink;
+            }
+        }, 1000);
+        
+        whatsappBtn.addEventListener('click', () => {
+            window.location.href = whatsappLink;
+        });
+    </script>
+</body>
+</html>
