@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube Wale Baba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,24 +15,113 @@
         }
         
         body {
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             color: white;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 800px;
             width: 100%;
-            animation: slideIn 0.8s ease-in;
+            text-align: center;
         }
         
-        @keyframes slideIn {
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .blob:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+        
+        .blob:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            bottom: -50px;
+            right: -50px;
+            background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+        
+        .logo-container {
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .logo-main {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #ff1744 0%, #ff5252 100%);
+            border-radius: 30px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            box-shadow: 0 20px 60px rgba(255, 23, 68, 0.4);
+            animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-main:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 25px 70px rgba(255, 23, 68, 0.5);
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin: 30px 0 10px;
+            background: linear-gradient(135deg, #ff1744 0%, #ff5252 50%, #ffeb3b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            animation: slideDown 0.8s ease;
+        }
+        
+        @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-30px);
@@ -40,182 +132,227 @@
             }
         }
         
-        .logo-large {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-            border-radius: 50%;
-            margin: 30px auto;
+        .tagline {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .logo-secondary {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+            border-radius: 25px;
+            margin: 50px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: bounce 2s infinite;
+            font-size: 70px;
+            box-shadow: 0 15px 50px rgba(0, 188, 212, 0.3);
+            animation: fadeInUp 0.8s ease 0.3s both;
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        h1 {
-            font-size: 60px;
-            margin: 30px 0;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .subtitle {
-            font-size: 28px;
-            margin: 20px 0;
-            opacity: 0.95;
-        }
-        
-        .logo-medium {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            border-radius: 50%;
-            margin: 40px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .description {
-            font-size: 24px;
-            margin: 40px 0;
-            line-height: 1.6;
-            opacity: 0.95;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 30px 0 50px;
+            color: rgba(255, 255, 255, 0.85);
+            animation: fadeInUp 0.8s ease 0.5s both;
         }
         
-        .timer-box {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
+        .description p {
+            margin: 12px 0;
+        }
+        
+        .timer-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 50px 30px;
             margin: 50px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 0.8s ease 0.7s both;
         }
         
-        .timer-text {
-            font-size: 20px;
+        .timer-label {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 20px;
+            font-weight: 600;
         }
         
-        .timer {
-            font-size: 80px;
-            font-weight: bold;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        .timer-display {
+            font-size: 120px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffeb3b 0%, #fdd835 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 235, 59, 0.3);
+            margin: 20px 0;
+            line-height: 1;
         }
         
         .timer-sub {
-            font-size: 18px;
-            margin-top: 15px;
-            opacity: 0.9;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
         }
         
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366 0%, #1EBE57 100%);
+        .cta-button {
+            background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
             color: white;
             border: none;
-            padding: 25px 60px;
-            font-size: 28px;
-            border-radius: 60px;
+            padding: 20px 60px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
             cursor: pointer;
-            margin: 40px 0;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            margin: 30px 0 20px;
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.3);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease 0.9s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0, 188, 212, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.8s ease 1.1s both;
+        }
+        
+        .social-hint {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        .pulse {
+            animation: pulse 2s infinite;
         }
         
-        .whatsapp-btn:active {
-            transform: scale(0.98);
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
         }
         
-        .footer {
-            margin-top: 60px;
-            font-size: 16px;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             h1 {
-                font-size: 40px;
+                font-size: 48px;
             }
-            .subtitle {
-                font-size: 20px;
+            
+            .timer-display {
+                font-size: 80px;
             }
+            
+            .logo-main {
+                width: 140px;
+                height: 140px;
+                font-size: 70px;
+            }
+            
+            .logo-secondary {
+                width: 110px;
+                height: 110px;
+                font-size: 55px;
+            }
+            
+            .cta-button {
+                padding: 16px 45px;
+                font-size: 16px;
+            }
+            
             .description {
-                font-size: 18px;
+                font-size: 16px;
             }
-            .timer {
-                font-size: 60px;
-            }
-            .whatsapp-btn {
-                padding: 20px 40px;
-                font-size: 20px;
-            }
-            .logo-large {
-                width: 100px;
-                height: 100px;
-                font-size: 50px;
-            }
-            .logo-medium {
-                width: 80px;
-                height: 80px;
-                font-size: 40px;
+            
+            .timer-container {
+                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="floating-bg">
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
     <div class="container">
-        <div class="logo-large">📺</div>
+        <div class="logo-container">
+            <div class="logo-main">📺</div>
+        </div>
         
         <h1>Youtube Wale Baba</h1>
+        <p class="tagline">YOUR ULTIMATE ENTERTAINMENT DESTINATION</p>
         
-        <div class="logo-medium">🎬</div>
-        
-        <div class="subtitle">हमारा चैनल देखें!</div>
+        <div class="logo-secondary">🎬</div>
         
         <div class="description">
-            <p>🎥 सबसे मजेदार और दिलचस्प videos के लिए</p>
-            <p>हमारे YouTube चैनल को SUBSCRIBE करें!</p>
+            <p>🎥 सबसे मजेदार और दिलचस्प वीडियो</p>
+            <p>🌟 एक्सक्लूसिव कंटेंट सिर्फ आपके लिए</p>
+            <p>🚀 हर दिन नए वीडियो और अपडेट</p>
         </div>
         
-        <div class="timer-box">
-            <div class="timer-text">🔔 WhatsApp पर संपर्क करने के लिए तैयार रहें!</div>
-            <div class="timer">
-                <span id="countdown">5</span>
-            </div>
-            <div class="timer-sub">सेकंड में automatic redirect होगा...</div>
+        <div class="timer-container">
+            <div class="timer-label">⏱️ व्हाट्सएप रीडिरेक्ट</div>
+            <div class="timer-display" id="countdown">5</div>
+            <div class="timer-sub">सेकंड में स्वचालित रूप से व्हाट्सएप खुलेगा...</div>
         </div>
         
-        <button class="whatsapp-btn" id="whatsappBtn">
-            📱 WhatsApp पर संपर्क करें
+        <button class="cta-button" id="whatsappBtn">
+            💬 व्हाट्सएप पर संपर्क करें
         </button>
         
-        <div class="footer">
-            <p>अभी क्लिक करें या 5 सेकंड का इंतज़ार करें</p>
+        <div class="footer-text">
+            <p>🔔 तुरंत क्लिक करें या 5 सेकंड प्रतीक्षा करें</p>
+            <p class="social-hint">⭐ हमें फॉलो करें</p>
         </div>
     </div>
 
@@ -226,19 +363,33 @@
         const countdownElement = document.getElementById('countdown');
         const whatsappBtn = document.getElementById('whatsappBtn');
         
+        function updateCountdown() {
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 2) {
+                countdownElement.classList.add('pulse');
+            }
+        }
+        
+        updateCountdown();
+        
         const timer = setInterval(() => {
             seconds--;
-            countdownElement.textContent = seconds;
+            updateCountdown();
             
             if (seconds <= 0) {
                 clearInterval(timer);
-                window.location.href = whatsappLink;
+                redirectToWhatsApp();
             }
         }, 1000);
         
+        function redirectToWhatsApp() {
+            window.location.href = whatsappLink;
+        }
+        
         whatsappBtn.addEventListener('click', () => {
             clearInterval(timer);
-            window.location.href = whatsappLink;
+            redirectToWhatsApp();
         });
     </script>
 </body>
